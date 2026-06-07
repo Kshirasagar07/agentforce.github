@@ -304,30 +304,50 @@ nav a:hover{
     </p>
 </footer>
 
-    <script type='text/javascript'>
+
+<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
-			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+			embeddedservice_bootstrap.settings.language = 'en_US';
+
+			console.log("Initializing Embedded Messaging...");
 
 			window.addEventListener("onEmbeddedMessagingReady", () => {
+				console.log("onEmbeddedMessagingReady fired");
 
-    // get email from your system
-    const firstNameInput = document.querySelector('input[name="FirstName"]');
-	const lastNameInput = document.querySelector('input[name="LastName"]');
-	const emailInput = document.querySelector('input[name="email"]');
-	const phoneInput = document.querySelector('input[name="tel"]');
+				const firstNameInput = document.querySelector('input[name="FirstName"]');
+				const lastNameInput = document.querySelector('input[name="LastName"]');
+				const emailInput = document.querySelector('input[name="email"]');
+				const phoneInput = document.querySelector('input[name="tel"]');
 
-        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-            Email: emailInput, First_Name: firstNameInput, Last_Name: lastNameInput, Phone: phoneInput
-        });
+				console.log("Elements found:", {
+					firstNameInput,
+					lastNameInput,
+					emailInput,
+					phoneInput
+				});
 
-        console.log("Email:", emailInput);
-		console.log("firstname:", firstNameInput);
-		console.log("lastname:", lastNameInput);
-		console.log("phone:", phoneInput);
+				const firstName = firstNameInput?.value || '';
+				const lastName = lastNameInput?.value || '';
+				const email = emailInput?.value || '';
+				const phone = phoneInput?.value || '';
 
-});
+				console.log("Values:", {
+					firstName,
+					lastName,
+					email,
+					phone
+				});
 
+				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+					First_Name: firstName,
+					Last_Name: lastName,
+					Email: email,
+					Phone: phone
+				});
+
+				console.log("Pre-chat fields set successfully");
+			});
 
 			embeddedservice_bootstrap.init(
 				'00DgK00000MRhQn',
@@ -337,8 +357,9 @@ nav a:hover{
 					scrt2URL: 'https://orgfarm-ef45e36537-dev-ed.develop.my.salesforce-scrt.com'
 				}
 			);
+
 		} catch (err) {
-			console.error('Error loading Embedded Messaging: ', err);
+			console.error('Error loading Embedded Messaging:', err);
 		}
 	};
 </script>
