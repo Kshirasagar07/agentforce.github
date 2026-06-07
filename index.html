@@ -309,6 +309,27 @@ nav a:hover{
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
+			window.addEventListener("onEmbeddedMessagingReady", () => {
+
+    // get email from your system
+    const firstNameInput = document.querySelector('input[name="FirstName"]');
+	const lastNameInput = document.querySelector('input[name="LastName"]');
+	const emailInput = document.querySelector('input[name="email"]');
+	const phoneInput = document.querySelector('input[name="tel"]');
+
+    if (userEmail) {
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            Email: userEmail, First_Name: firstNameInput, Last_Name: lastNameInput, Phone: phoneInput
+        });
+
+        console.log("Email sent to chat:", userEmail);
+    } else {
+        console.warn("Email not available");
+    }
+
+});
+
+
 			embeddedservice_bootstrap.init(
 				'00DgK00000MRhQn',
 				'GithubCocaColaWebsite',
