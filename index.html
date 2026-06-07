@@ -317,7 +317,6 @@ nav a:hover{
 	const emailInput = document.querySelector('input[name="email"]');
 	const phoneInput = document.querySelector('input[name="tel"]');
 
-    if (userEmail) {
         embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
             Email: emailInput, First_Name: firstNameInput, Last_Name: lastNameInput, Phone: phoneInput
         });
@@ -326,9 +325,6 @@ nav a:hover{
 		console.log("firstname:", firstNameInput);
 		console.log("lastname:", lastNameInput);
 		console.log("phone:", phoneInput);
-    } else {
-        console.warn("Email not available");
-    }
 
 });
 
