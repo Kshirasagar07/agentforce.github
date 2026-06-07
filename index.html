@@ -300,7 +300,7 @@ nav a:hover{
         <a href="#">YouTube</a>
     </div>
     <p style="margin-top:15px;">
-        © 2026-27 Demo Website. For educational purposes only.
+        © 2026 Demo Website. For educational purposes only.
     </p>
 </footer>
 
@@ -319,10 +319,13 @@ nav a:hover{
 
     if (userEmail) {
         embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-            Email: userEmail, First_Name: firstNameInput, Last_Name: lastNameInput, Phone: phoneInput
+            Email: emailInput, First_Name: firstNameInput, Last_Name: lastNameInput, Phone: phoneInput
         });
 
-        console.log("Email sent to chat:", userEmail);
+        console.log("Email:", emailInput);
+		console.log("firstname:", firstNameInput);
+		console.log("lastname:", lastNameInput);
+		console.log("phone:", phoneInput);
     } else {
         console.warn("Email not available");
     }
