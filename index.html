@@ -323,10 +323,10 @@ console.error('Error loading Embedded Messaging: ', err);
 }
 };
 
-var inputEmail = document.querySelector('input[name="Email"]').value;
-var inputFirstName = document.querySelector('input[name="FirstName"]').value;
-var inputLastName = document.querySelector('input[name="LastName"]').value;
-var inputPhone = document.querySelector('input[name="tel"]').value;
+var inputEmail = document.querySelector('input[name="Email"]')?.value || '';
+var inputFirstName = document.querySelector('input[name="FirstName"]')?.value || '';
+var inputLastName = document.querySelector('input[name="LastName"]')?.value || '';
+var inputPhone = document.querySelector('input[name="tel"]')?.value || '';
 
 window.addEventListener("onEmbeddedMessagingReady", e => {
 //log event
@@ -353,7 +353,6 @@ embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
 "value": inputEmail,
 "isEditableByEndUser": true
 },
-
 "Phone": {
 "value": inputPhone,
 "isEditableByEndUser": true
