@@ -300,7 +300,7 @@ nav a:hover{
         <a href="#">YouTube</a>
     </div>
     <p style="margin-top:15px;">
-        © 2026-27 Demo Website. For educational purposes only.
+        © 2026 Demo Website. For educational purposes only.
     </p>
 </footer>
 
@@ -333,6 +333,17 @@ window.addEventListener("onEmbeddedMessagingReady", () => {
      * Fires after user clicks Start Conversation
      */
     window.addEventListener("onEmbeddedMessagingConversationStarted", () => {
+
+        console.log("All inputs on page:");
+
+document.querySelectorAll("input").forEach(input => {
+    console.log({
+        name: input.name,
+        id: input.id,
+        type: input.type,
+        value: input.value
+    });
+});
 
         const inputEmail =
             document.querySelector('input[name="Email"]')?.value || '';
