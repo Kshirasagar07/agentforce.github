@@ -300,66 +300,84 @@ nav a:hover{
         <a href="#">YouTube</a>
     </div>
     <p style="margin-top:15px;">
-        © 2026 Demo Website. For educational purposes only.
+        © 2026-27 Demo Website. For educational purposes only.
     </p>
 </footer>
 
 
 <script type='text/javascript'>
 function initEmbeddedMessaging() {
-try {
-embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
+    try {
+        embeddedservice_bootstrap.settings.language = 'en_US';
 
-embeddedservice_bootstrap.init(
-'00DgK00000MRhQn',
-'GithubCocaColaWebsite',
-'https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706',
-{
-scrt2URL: 'https://orgfarm-ef45e36537-dev-ed.develop.my.salesforce-scrt.com'
+        embeddedservice_bootstrap.init(
+            '00DgK00000MRhQn',
+            'GithubCocaColaWebsite',
+            'https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706',
+            {
+                scrt2URL: 'https://orgfarm-ef45e36537-dev-ed.develop.my.salesforce-scrt.com'
+            }
+        );
+    } catch (err) {
+        console.error('Error loading Embedded Messaging: ', err);
+    }
 }
-);
-} catch (err) {
-console.error('Error loading Embedded Messaging: ', err);
-}
-};
 
-var inputEmail = document.querySelector('input[name="Email"]')?.value || '';
-var inputFirstName = document.querySelector('input[name="FirstName"]')?.value || '';
-var inputLastName = document.querySelector('input[name="LastName"]')?.value || '';
-var inputPhone = document.querySelector('input[name="tel"]')?.value || '';
+/*
+ * Fires when Embedded Messaging is loaded
+ */
+window.addEventListener("onEmbeddedMessagingReady", () => {
+    console.log("Embedded Messaging Loaded");
 
-window.addEventListener("onEmbeddedMessagingReady", e => {
-//log event
-console.log("onEmbeddedMessagingReady event triggered");
-console.log("First Name:", inputFirstName);
-console.log("Last Name:", inputLastName);
-console.log("Email:", inputEmail);
-console.log("Phone:", inputPhone);
+    /*
+     * Fires after user clicks Start Conversation
+     */
+    window.addEventListener("onEmbeddedMessagingConversationStarted", () => {
 
+        const inputEmail =
+            document.querySelector('input[name="Email"]')?.value || '';
 
-//set visible prechat field
-embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-// List the pre-chat field names with the value and whether
-// it's editable in the pre-chat form.
-"First_Name": {
-"value": inputFirstName,
-"isEditableByEndUser": true
-},
-"Last_Name": {
-"value": inputLastName,
-"isEditableByEndUser": true
-},
-"Email": {
-"value": inputEmail,
-"isEditableByEndUser": true
-}
+        const inputFirstName =
+            document.querySelector('input[name="FirstName"]')?.value || '';
+
+        const inputLastName =
+            document.querySelector('input[name="LastName"]')?.value || '';
+
+        const inputPhone =
+            document.querySelector('input[name="tel"]')?.value || '';
+
+        console.log("Conversation Started");
+        console.log("First Name:", inputFirstName);
+        console.log("Last Name:", inputLastName);
+        console.log("Email:", inputEmail);
+        console.log("Phone:", inputPhone);
+
+        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+            "First_Name": {
+                "value": inputFirstName,
+                "isEditableByEndUser": true
+            },
+            "Last_Name": {
+                "value": inputLastName,
+                "isEditableByEndUser": true
+            },
+            "Email": {
+                "value": inputEmail,
+                "isEditableByEndUser": true
+            },
+            "Phone": {
+                "value": inputPhone,
+                "isEditableByEndUser": true
+            }
+        });
+    });
 });
-});
-
 </script>
-    
-<script type='text/javascript' src='https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'>
-    console.log("Run after click");
+
+<script
+    type='text/javascript'
+    src='https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706/assets/js/bootstrap.min.js'
+    onload='initEmbeddedMessaging()'>
 </script>
 
 
