@@ -306,62 +306,62 @@ nav a:hover{
 
 
 <script type='text/javascript'>
-	function initEmbeddedMessaging() {
-		try {
-			embeddedservice_bootstrap.settings.language = 'en_US';
+function initEmbeddedMessaging() {
+try {
+embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-			console.log("Initializing Embedded Messaging...");
+embeddedservice_bootstrap.init(
+'00DgK00000MRhQn',
+'GithubCocaColaWebsite',
+'https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706',
+{
+scrt2URL: 'https://orgfarm-ef45e36537-dev-ed.develop.my.salesforce-scrt.com'
+}
+);
+} catch (err) {
+console.error('Error loading Embedded Messaging: ', err);
+}
+};
 
-			window.addEventListener("onEmbeddedMessagingReady", () => {
-				console.log("onEmbeddedMessagingReady fired");
+var inputEmail = document.querySelector('input[name="Email"]').value;
+var inputFirstName = document.querySelector('input[name="FirstName"]').value;
+var inputLastName = document.querySelector('input[name="LastName"]').value;
+var inputPhone = document.querySelector('input[name="tel"]').value;
 
-				const firstNameInput = document.querySelector('input[name="FirstName"]');
-				const lastNameInput = document.querySelector('input[name="LastName"]');
-				const emailInput = document.querySelector('input[name="email"]');
-				const phoneInput = document.querySelector('input[name="tel"]');
+window.addEventListener("onEmbeddedMessagingReady", e => {
+//log event
+console.log("onEmbeddedMessagingReady event triggered");
+console.log("First Name:", inputFirstName);
+console.log("Last Name:", inputLastName);
+console.log("Email:", inputEmail);
+console.log("Phone:", inputPhone);
 
-				console.log("Elements found:", {
-					firstNameInput,
-					lastNameInput,
-					emailInput,
-					phoneInput
-				});
 
-				const firstName = firstNameInput?.value || '';
-				const lastName = lastNameInput?.value || '';
-				const email = emailInput?.value || '';
-				const phone = phoneInput?.value || '';
+//set visible prechat field
+embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
+// List the pre-chat field names with the value and whether
+// it's editable in the pre-chat form.
+"First_Name": {
+"value": inputFirstName,
+"isEditableByEndUser": false
+},
+"Last_Name": {
+"value": inputLastName,
+"isEditableByEndUser": false
+},
+"Email": {
+"value": inputEmail,
+"isEditableByEndUser": true
+}
 
-				console.log("Values:", {
-					firstName,
-					lastName,
-					email,
-					phone
-				});
+"Phone": {
+"value": inputPhone,
+"isEditableByEndUser": true
+}
+});
 
-				embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-					First_Name: firstName,
-					Last_Name: lastName,
-					Email: email,
-					Phone: phone
-				});
+});
 
-				console.log("Pre-chat fields set successfully");
-			});
-
-			embeddedservice_bootstrap.init(
-				'00DgK00000MRhQn',
-				'GithubCocaColaWebsite',
-				'https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706',
-				{
-					scrt2URL: 'https://orgfarm-ef45e36537-dev-ed.develop.my.salesforce-scrt.com'
-				}
-			);
-
-		} catch (err) {
-			console.error('Error loading Embedded Messaging:', err);
-		}
-	};
 </script>
 <script type='text/javascript' src='https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
