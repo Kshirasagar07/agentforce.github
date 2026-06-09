@@ -304,93 +304,25 @@ nav a:hover{
     </p>
 </footer>
 
-
 <script type='text/javascript'>
-function initEmbeddedMessaging() {
-    try {
-        embeddedservice_bootstrap.settings.language = 'en_US';
+	function initEmbeddedMessaging() {
+		try {
+			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
-        embeddedservice_bootstrap.init(
-            '00DgK00000MRhQn',
-            'GithubCocaColaWebsite',
-            'https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706',
-            {
-                scrt2URL: 'https://orgfarm-ef45e36537-dev-ed.develop.my.salesforce-scrt.com'
-            }
-        );
-    } catch (err) {
-        console.error('Error loading Embedded Messaging: ', err);
-    }
-}
-
-/*
- * Fires when Embedded Messaging is loaded
- */
-window.addEventListener("onEmbeddedMessagingReady", () => {
-    console.log("Embedded Messaging Loaded");
-
-    /*
-     * Fires after user clicks Start Conversation
-     */
-    window.addEventListener("onEmbeddedMessagingConversationStarted", () => {
-
-        console.log("All inputs on page:");
-
-document.querySelectorAll("input").forEach(input => {
-    console.log({
-        name: input.name,
-        id: input.id,
-        type: input.type,
-        value: input.value
-    });
-});
-
-        const inputEmail =
-            document.querySelector('input[name="Email"]')?.value || '';
-
-        const inputFirstName =
-            document.querySelector('input[name="FirstName"]')?.value || '';
-
-        const inputLastName =
-            document.querySelector('input[name="LastName"]')?.value || '';
-
-        const inputPhone =
-            document.querySelector('input[name="tel"]')?.value || '';
-
-        console.log("Conversation Started");
-        console.log("First Name:", inputFirstName);
-        console.log("Last Name:", inputLastName);
-        console.log("Email:", inputEmail);
-        console.log("Phone:", inputPhone);
-
-        embeddedservice_bootstrap.prechatAPI.setVisiblePrechatFields({
-            "First_Name": {
-                "value": inputFirstName,
-                "isEditableByEndUser": true
-            },
-            "Last_Name": {
-                "value": inputLastName,
-                "isEditableByEndUser": true
-            },
-            "Email": {
-                "value": inputEmail,
-                "isEditableByEndUser": true
-            },
-            "Phone": {
-                "value": inputPhone,
-                "isEditableByEndUser": true
-            }
-        });
-    });
-});
+			embeddedservice_bootstrap.init(
+				'00DgK00000MRhQn',
+				'GithubCocaColaWebsite',
+				'https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706',
+				{
+					scrt2URL: 'https://orgfarm-ef45e36537-dev-ed.develop.my.salesforce-scrt.com'
+				}
+			);
+		} catch (err) {
+			console.error('Error loading Embedded Messaging: ', err);
+		}
+	};
 </script>
-
-<script
-    type='text/javascript'
-    src='https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706/assets/js/bootstrap.min.js'
-    onload='initEmbeddedMessaging()'>
-</script>
-
+<script type='text/javascript' src='https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
