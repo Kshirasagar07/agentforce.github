@@ -25,66 +25,95 @@ body{
     overflow-x:hidden;
 }
 
+/* HEADER */
+
 header{
     position:fixed;
     top:0;
+    left:0;
     width:100%;
     padding:20px 8%;
     display:flex;
     justify-content:space-between;
     align-items:center;
-    background:rgba(255,255,255,0.95);
+    background:rgba(0,0,0,0.25);
     backdrop-filter:blur(10px);
     z-index:1000;
 }
 
 .logo{
-    font-size:2rem;
-    font-weight:700;
-    color:#e61c23;
+    background:#fff;
+    padding:8px 16px;
+    border-radius:12px;
+    display:flex;
+    align-items:center;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.logo img{
+    height:40px;
+    width:auto;
+    display:block;
 }
 
 nav a{
     text-decoration:none;
-    color:#333;
+    color:#fff;
     margin-left:30px;
     font-weight:500;
     transition:.3s;
 }
 
 nav a:hover{
-    color:#e61c23;
+    color:#ffd6d6;
 }
+
+/* HERO SECTION */
 
 .hero{
     min-height:100vh;
     display:flex;
+    justify-content:center;
     align-items:center;
-    justify-content:space-between;
+    text-align:center;
     padding:120px 8%;
-    background:linear-gradient(135deg,#e61c23,#b60000);
-    color:white;
+
+    background:
+        linear-gradient(
+            rgba(0,0,0,0.45),
+            rgba(0,0,0,0.45)
+        ),
+        url('https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=1600');
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+    background-attachment:fixed;
+
+    color:#fff;
 }
 
 .hero-text{
-    max-width:550px;
+    max-width:750px;
 }
 
 .hero-text h1{
-    font-size:4rem;
+    font-size:5rem;
     line-height:1.1;
     margin-bottom:20px;
+    text-shadow:0 4px 15px rgba(0,0,0,.4);
 }
 
 .hero-text p{
-    font-size:1.1rem;
-    margin-bottom:30px;
+    font-size:1.2rem;
+    margin-bottom:35px;
+    text-shadow:0 2px 10px rgba(0,0,0,.4);
 }
 
 .btn{
     display:inline-block;
-    padding:14px 35px;
-    background:white;
+    padding:15px 38px;
+    background:#fff;
     color:#e61c23;
     text-decoration:none;
     border-radius:50px;
@@ -93,20 +122,11 @@ nav a:hover{
 }
 
 .btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(0,0,0,.2);
+    transform:translateY(-4px);
+    box-shadow:0 10px 25px rgba(0,0,0,.25);
 }
 
-.hero-image img{
-    width:380px;
-    filter:drop-shadow(0 20px 40px rgba(0,0,0,.35));
-    animation:float 3s ease-in-out infinite;
-}
-
-@keyframes float{
-    0%,100%{transform:translateY(0);}
-    50%{transform:translateY(-15px);}
-}
+/* COMMON SECTION */
 
 .section{
     padding:100px 8%;
@@ -118,6 +138,8 @@ nav a:hover{
     margin-bottom:50px;
     color:#e61c23;
 }
+
+/* PRODUCTS */
 
 .products{
     display:grid;
@@ -147,6 +169,8 @@ nav a:hover{
     color:#e61c23;
     margin-bottom:10px;
 }
+
+/* ABOUT */
 
 .about{
     background:#f8f8f8;
@@ -179,9 +203,11 @@ nav a:hover{
     line-height:1.8;
 }
 
+/* FOOTER */
+
 .footer{
     background:#111;
-    color:white;
+    color:#fff;
     text-align:center;
     padding:30px;
 }
@@ -191,30 +217,37 @@ nav a:hover{
 }
 
 .socials a{
-    color:white;
+    color:#fff;
     margin:0 10px;
     text-decoration:none;
 }
 
+.socials a:hover{
+    color:#e61c23;
+}
+
+/* MOBILE */
+
 @media(max-width:900px){
 
     .hero{
-        flex-direction:column;
-        text-align:center;
-        padding-top:150px;
+        background-attachment:scroll;
     }
 
     .hero-text h1{
         font-size:3rem;
     }
 
-    .hero-image img{
-        width:280px;
-        margin-top:40px;
+    .hero-text p{
+        font-size:1rem;
     }
 
     nav{
         display:none;
+    }
+
+    .logo img{
+        height:32px;
     }
 }
 </style>
@@ -222,7 +255,12 @@ nav a:hover{
 <body>
 
 <header>
-    <div class="logo">Coca-Cola</div>
+    <div class="logo">
+        <img
+        src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg"
+        alt="Coca-Cola Logo">
+    </div>
+
     <nav>
         <a href="#home">Home</a>
         <a href="#products">Products</a>
@@ -231,18 +269,24 @@ nav a:hover{
 </header>
 
 <section class="hero" id="home">
+
     <div class="hero-text">
         <h1>Open Happiness</h1>
-        <p>Experience the refreshing taste loved by millions around the world. Enjoy every moment with an ice-cold Coca-Cola.</p>
-        <a href="#products" class="btn">Explore Products</a>
+
+        <p>
+            Experience the refreshing taste loved by millions around the world.
+            Enjoy every moment with an ice-cold Coca-Cola.
+        </p>
+
+        <a href="#products" class="btn">
+            Explore Products
+        </a>
     </div>
 
-    <div class="hero-image">
-        <img src="https://images.unsplash.com/photo-1622483767028-3f66f32aef97?w=600" alt="Coca Cola Can">
-    </div>
 </section>
 
 <section class="section" id="products">
+
     <h2 class="section-title">Our Favorites</h2>
 
     <div class="products">
@@ -266,26 +310,34 @@ nav a:hover{
         </div>
 
     </div>
+
 </section>
 
 <section class="section about" id="about">
 
     <div class="about-content">
 
-        <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=900" alt="Drink">
+        <img
+        src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=900"
+        alt="Drink">
 
         <div class="about-text">
+
             <h2>Refreshing Since 1886</h2>
+
             <p>
                 Coca-Cola has become one of the most recognized beverages in the world.
                 Known for its iconic red branding and refreshing taste, it continues
                 to bring people together across generations.
             </p>
+
             <br>
+
             <p>
-                This demo website showcases a modern landing-page design suitable
+                This demo website showcases a modern landing page design suitable
                 for GitHub Pages hosting and portfolio projects.
             </p>
+
         </div>
 
     </div>
@@ -293,17 +345,20 @@ nav a:hover{
 </section>
 
 <footer class="footer">
+
     <h3>Coca-Cola Demo Landing Page</h3>
+
     <div class="socials">
         <a href="#">Facebook</a>
         <a href="#">Instagram</a>
         <a href="#">YouTube</a>
     </div>
+
     <p style="margin-top:15px;">
         © 2026 Demo Website. For educational purposes only.
     </p>
-</footer>
 
+</footer>
 <script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
@@ -323,6 +378,5 @@ nav a:hover{
 	};
 </script>
 <script type='text/javascript' src='https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
-
 </body>
 </html>
