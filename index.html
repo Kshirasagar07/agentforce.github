@@ -1,13 +1,15 @@
-<!DOCTYPE html>
+	<!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Coca-Cola Landing Page</title>
+
+<title>Colazo Landing Page</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
 <style>
+
 *{
     margin:0;
     padding:0;
@@ -41,19 +43,68 @@ header{
     z-index:1000;
 }
 
+/* LOGO */
+
 .logo{
-    background:#fff;
-    padding:8px 16px;
-    border-radius:12px;
     display:flex;
     align-items:center;
-    box-shadow:0 5px 15px rgba(0,0,0,.15);
+    gap:12px;
+
+    background:rgba(255,255,255,0.95);
+
+    padding:10px 18px;
+
+    border-radius:18px;
+
+    box-shadow:
+        0 10px 25px rgba(0,0,0,.15);
+
+    backdrop-filter:blur(10px);
 }
 
-.logo img{
-    height:40px;
-    width:auto;
-    display:block;
+/* ICON */
+
+.logo-icon{
+    width:46px;
+    height:46px;
+
+    border-radius:14px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    background:linear-gradient(
+        135deg,
+        #e61c23,
+        #ff5b66
+    );
+
+    color:#fff;
+
+    font-size:1.5rem;
+    font-weight:700;
+
+    box-shadow:
+        0 8px 18px rgba(230,28,35,.35);
+}
+
+/* TEXT */
+
+.logo-text{
+    font-size:1.7rem;
+    font-weight:700;
+
+    background:linear-gradient(
+        45deg,
+        #e61c23,
+        #ff5b66
+    );
+
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
+
+    letter-spacing:.5px;
 }
 
 nav a{
@@ -68,7 +119,7 @@ nav a:hover{
     color:#ffd6d6;
 }
 
-/* HERO SECTION */
+/* HERO */
 
 .hero{
     min-height:100vh;
@@ -134,40 +185,130 @@ nav a:hover{
 
 .section-title{
     text-align:center;
-    font-size:2.5rem;
-    margin-bottom:50px;
+    font-size:2.8rem;
+    margin-bottom:60px;
     color:#e61c23;
 }
 
 /* PRODUCTS */
 
-.products{
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:30px;
+#products{
+    background:
+        linear-gradient(
+            180deg,
+            #f8f8f8,
+            #ffffff
+        );
 }
 
+.products{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+    gap:35px;
+}
+
+/* MODERN CARD */
+
 .card{
-    background:#fff;
-    border-radius:20px;
-    padding:30px;
+    position:relative;
+    overflow:hidden;
+
+    background:linear-gradient(
+        145deg,
+        rgba(255,255,255,0.95),
+        rgba(255,255,255,0.85)
+    );
+
+    border-radius:28px;
+    padding:35px 25px;
     text-align:center;
-    box-shadow:0 10px 30px rgba(0,0,0,.08);
-    transition:.4s;
+
+    border:1px solid rgba(255,255,255,0.3);
+
+    box-shadow:
+        0 15px 40px rgba(0,0,0,.08),
+        inset 0 1px 0 rgba(255,255,255,.6);
+
+    transition:.45s ease;
 }
 
 .card:hover{
-    transform:translateY(-10px);
+    transform:translateY(-14px) scale(1.02);
+
+    box-shadow:
+        0 25px 60px rgba(230,28,35,.18);
 }
 
-.card img{
-    width:140px;
-    margin-bottom:20px;
+/* GLOW EFFECT */
+
+.product-glow{
+    position:absolute;
+    width:220px;
+    height:220px;
+    background:rgba(230,28,35,0.12);
+    border-radius:50%;
+
+    top:-120px;
+    right:-100px;
+
+    filter:blur(20px);
 }
+
+/* IMAGE */
+
+.card img{
+    width:170px;
+    height:170px;
+    object-fit:cover;
+
+    border-radius:20px;
+
+    margin-bottom:25px;
+
+    transition:.4s;
+}
+
+.card:hover img{
+    transform:scale(1.08) rotate(-2deg);
+}
+
+/* TITLE */
 
 .card h3{
     color:#e61c23;
-    margin-bottom:10px;
+    font-size:1.5rem;
+    margin-bottom:12px;
+}
+
+/* TEXT */
+
+.card p{
+    color:#555;
+    line-height:1.7;
+    font-size:.96rem;
+    margin-bottom:20px;
+}
+
+/* TAG */
+
+.tag{
+    display:inline-block;
+
+    padding:8px 18px;
+
+    border-radius:50px;
+
+    background:linear-gradient(
+        45deg,
+        #e61c23,
+        #ff4b57
+    );
+
+    color:#fff;
+    font-size:.85rem;
+    font-weight:600;
+
+    box-shadow:0 8px 20px rgba(230,28,35,.25);
 }
 
 /* ABOUT */
@@ -246,19 +387,28 @@ nav a:hover{
         display:none;
     }
 
-    .logo img{
-        height:32px;
+    .logo-text{
+        font-size:1.3rem;
     }
 }
+
 </style>
 </head>
+
 <body>
 
+<!-- HEADER -->
+
 <header>
+
     <div class="logo">
-        <img
-        src="https://upload.wikimedia.org/wikipedia/commons/c/ce/Coca-Cola_logo.svg"
-        alt="Coca-Cola Logo">
+
+        <div class="logo-icon">C</div>
+
+        <div class="logo-text">
+            Colazo
+        </div>
+
     </div>
 
     <nav>
@@ -266,52 +416,163 @@ nav a:hover{
         <a href="#products">Products</a>
         <a href="#about">About</a>
     </nav>
+
 </header>
+
+<!-- HERO -->
 
 <section class="hero" id="home">
 
     <div class="hero-text">
-        <h1>Open Happiness</h1>
+
+        <h1>Open The Spark</h1>
 
         <p>
-            Experience the refreshing taste loved by millions around the world.
-            Enjoy every moment with an ice-cold Coca-Cola.
+            Discover the refreshing world of Colazo —
+            bold flavors, sparkling energy, and unforgettable moments.
         </p>
 
         <a href="#products" class="btn">
             Explore Products
         </a>
+
     </div>
 
 </section>
+
+<!-- PRODUCTS -->
 
 <section class="section" id="products">
 
-    <h2 class="section-title">Our Favorites</h2>
+    <h2 class="section-title">Colazo Signature Drinks</h2>
 
     <div class="products">
 
-        <div class="card">
-            <img src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a?w=400" alt="">
-            <h3>Classic Coke</h3>
-            <p>The original taste that brings people together.</p>
-        </div>
+        <!-- PRODUCT 1 -->
 
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=400" alt="">
-            <h3>Diet Coke</h3>
-            <p>Great taste with zero sugar.</p>
+
+            <div class="product-glow"></div>
+
+            <img 
+            src="https://images.unsplash.com/photo-1629203851122-3726ecdf080e?w=500"
+            alt="Colazo Classic">
+
+            <h3>Colazo Classic</h3>
+
+            <p>
+                Bold sparkling flavor with the original refreshing taste.
+            </p>
+
+            <span class="tag">Best Seller</span>
+
         </div>
 
+        <!-- PRODUCT 2 -->
+
         <div class="card">
-            <img src="https://images.unsplash.com/photo-1561758033-d89a9ad46330?w=400" alt="">
-            <h3>Coke Zero</h3>
-            <p>Real Coca-Cola taste with no sugar.</p>
+
+            <div class="product-glow"></div>
+
+            <img 
+            src="https://images.unsplash.com/photo-1581006852262-e4307cf6283a?w=500"
+            alt="Colazo Zero">
+
+            <h3>Colazo Zero</h3>
+
+            <p>
+                All the excitement with zero sugar and smooth fizz.
+            </p>
+
+            <span class="tag">Zero Sugar</span>
+
+        </div>
+
+        <!-- PRODUCT 3 -->
+
+        <div class="card">
+
+            <div class="product-glow"></div>
+
+            <img 
+            src="https://images.unsplash.com/photo-1544145945-f90425340c7e?w=500"
+            alt="Cherry Blast">
+
+            <h3>Cherry Blast</h3>
+
+            <p>
+                Sweet cherry fusion crafted for a bold fruity kick.
+            </p>
+
+            <span class="tag">New</span>
+
+        </div>
+
+        <!-- PRODUCT 4 -->
+
+        <div class="card">
+
+            <div class="product-glow"></div>
+
+            <img 
+            src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?w=500"
+            alt="Lime Twist">
+
+            <h3>Lime Twist</h3>
+
+            <p>
+                Citrus freshness mixed with sparkling energy.
+            </p>
+
+            <span class="tag">Refreshing</span>
+
+        </div>
+
+        <!-- PRODUCT 5 -->
+
+        <div class="card">
+
+            <div class="product-glow"></div>
+
+            <img 
+            src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=500"
+            alt="Energy Rush">
+
+            <h3>Energy Rush</h3>
+
+            <p>
+                Powerful sparkling boost for your active lifestyle.
+            </p>
+
+            <span class="tag">Trending</span>
+
+        </div>
+
+        <!-- PRODUCT 6 -->
+
+        <div class="card">
+
+            <div class="product-glow"></div>
+
+            <img 
+            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=500"
+            alt="Vanilla Pop">
+
+            <h3>Vanilla Pop</h3>
+
+            <p>
+                Creamy vanilla flavor with smooth sparkling finish.
+            </p>
+
+            <span class="tag">Premium</span>
+
         </div>
 
     </div>
 
 </section>
+
+<!-- ABOUT -->
 
 <section class="section about" id="about">
 
@@ -323,19 +584,20 @@ nav a:hover{
 
         <div class="about-text">
 
-            <h2>Refreshing Since 1886</h2>
+            <h2>Refreshing Since 2026</h2>
 
             <p>
-                Coca-Cola has become one of the most recognized beverages in the world.
-                Known for its iconic red branding and refreshing taste, it continues
-                to bring people together across generations.
+                Colazo is a modern sparkling beverage brand crafted
+                for the new generation. With bold flavors, premium fizz,
+                and energetic vibes, Colazo delivers refreshment
+                in every sip.
             </p>
 
             <br>
 
             <p>
-                This demo website showcases a modern landing page design suitable
-                for GitHub Pages hosting and portfolio projects.
+                This landing page showcases a stylish modern beverage
+                website design suitable for portfolio and GitHub Pages projects.
             </p>
 
         </div>
@@ -344,9 +606,11 @@ nav a:hover{
 
 </section>
 
+<!-- FOOTER -->
+
 <footer class="footer">
 
-    <h3>Coca-Cola Demo Landing Page</h3>
+    <h3>Colazo Demo Landing Page</h3>
 
     <div class="socials">
         <a href="#">Facebook</a>
@@ -355,11 +619,12 @@ nav a:hover{
     </div>
 
     <p style="margin-top:15px;">
-        © 2026 Demo Website. For educational purposes only.
+        © 2026 Colazo. All rights reserved.
     </p>
 
 </footer>
-<script type='text/javascript'>
+
+	<script type='text/javascript'>
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
@@ -378,5 +643,6 @@ nav a:hover{
 	};
 </script>
 <script type='text/javascript' src='https://orgfarm-ef45e36537-dev-ed.develop.my.site.com/ESWGithubCocaColaWebsite1780829923706/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+
 </body>
 </html>
