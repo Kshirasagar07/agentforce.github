@@ -625,25 +625,14 @@ nav a:hover{
 </footer>
 
 <script type='text/javascript'>
-window.addEventListener("onEmbeddedMessagingReady", () => {
-		try {
-			embeddedservice_bootstrap.prechatAPI.setHiddenPrechatFields({
-				"Country": "North America"
-			});
-			console.log("Hidden pre-chat fields successfully set.");
-		} catch (err) {
-			console.error("Error setting hidden pre-chat fields: ", err);
-		}
-	});
-
 	function initEmbeddedMessaging() {
 		try {
 			embeddedservice_bootstrap.settings.language = 'en_US'; // For example, enter 'en' or 'en-US'
 
 			embeddedservice_bootstrap.init(
 				'00DVa000006ADuz',
-				'Coke_agent_Channel',
-				'https://ecic2--nexus2dev.sandbox.my.site.com/ESWCokeagentChannel1781782887955',
+				'Coke_Agenrforce_Agent_Web_Channel',
+				'https://ecic2--nexus2dev.sandbox.my.site.com/ESWCokeAgenrforceAgent1781154372909',
 				{
 					scrt2URL: 'https://ecic2--nexus2dev.sandbox.my.salesforce-scrt.com'
 				}
@@ -653,7 +642,7 @@ window.addEventListener("onEmbeddedMessagingReady", () => {
 		}
 	};
 </script>
-<script type='text/javascript' src='https://ecic2--nexus2dev.sandbox.my.site.com/ESWCokeagentChannel1781782887955/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
+<script type='text/javascript' src='https://ecic2--nexus2dev.sandbox.my.site.com/ESWCokeAgenrforceAgent1781154372909/assets/js/bootstrap.min.js' onload='initEmbeddedMessaging()'></script>
 
 </body>
 </html>
